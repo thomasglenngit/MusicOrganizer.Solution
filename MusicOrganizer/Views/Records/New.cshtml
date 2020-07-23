@@ -1,0 +1,10 @@
+<h1>Add a new record to @Model.TypeOfCollection</h1>
+
+<form action="/collections/@Model.Id/records" method="post">
+  <input id="collectionId" name="collectionId" type="hidden" value="@Model.Id">
+  <label for="recordTitle">Record Title</label>
+  <input id="recordTitle" name="recordTitle" type="text">
+  <label for="recordArtist">Record Artist</label>
+  <input id="recordArtist" name="recordArtist" type="text">
+  <button type='submit'>Add Item</button>
+</form>
