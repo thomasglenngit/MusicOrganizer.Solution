@@ -7,14 +7,14 @@ namespace MusicOrganizer.Models
     private static List<Collection> _collections = new List<Collection> {};
     public string TypeOfCollection { get; set; }
     public int Id { get; }
-    public Dictionary<string, List<Record>> Records { get; set; }
+    public List<Record> Records { get; set; }
 
     public Collection(string collectionType)
     {
       TypeOfCollection = collectionType;
       _collections.Add(this);
       Id = _collections.Count;
-      Records = new Dictionary<string, List<Record>>{};
+      Records = new List<Record>{};
     }
     public static void ClearAll()
     {
@@ -30,7 +30,17 @@ namespace MusicOrganizer.Models
     }
     public void AddRecord(Record record)
     {
-      Records.Add(record.Artist, record);
+      Records.Add(record);
+    }
+
+    public static List<List<Record>> GetAllRecords()
+    {
+      List<List<Record>> result = new List<List<Record>>();
+      foreach(List<Record> list in _collections)
+      {
+        result.Add(list);
+      }
+      return result;
     }
   }
 }
