@@ -86,7 +86,7 @@ namespace MusicOrganizer.Tests
     [TestMethod]
     public void Find_ReturnsCorrectItem_Item()
     {
-      Record  record1 = new Record("title", "artist");
+      Record record1 = new Record("title", "artist");
       record1.Save();
       Record record2 = new Record("Rubber Soul", "The Beatles");
       record2.Save();

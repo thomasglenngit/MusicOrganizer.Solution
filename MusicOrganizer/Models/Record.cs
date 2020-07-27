@@ -99,10 +99,42 @@ namespace MusicOrganizer.Models
       }
     }
 
-    public static Record Find(int searchId)
+    public static Record Find(int id)
     {
-      Record placeholderRecord = new Record("placeholder Title", "placeholder Artist");
-      return placeholderRecord;
+      // We open a connection.
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      // We create MySqlCommand object and add a query to its CommandText property. We always need to do this to make a SQL query.
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM `records` WHERE id = @thisId;";
+
+      // We have to use parameter placeholders (@thisId) and a `MySqlParameter` object to prevent SQL injection attacks. This is only necessary when we are passing parameters into a query. We also did this with our Save() method.
+      MySqlParameter thisId = new MySqlParameter();
+      thisId.ParameterName = "@thisId";
+      thisId.Value = id;
+      cmd.Parameters.Add(thisId);
+
+      // We use the ExecuteReader() method because our query will be returning results and we need this method to read these results. This is in contrast to the ExecuteNonQuery() method, which we use for SQL commands that don't return results like our Save() method.
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int recordId = 0;
+      string recordTitle = "";
+      string recordArtist = "";
+      while (rdr.Read())
+      {
+        recordId = rdr.GetInt32(0);
+        recordTitle = rdr.GetString(1);
+        recordArtist = rdr.GetString(2);
+      }
+      Record foundRecord= new Record(recordId, recordTitle, recordArtist);
+
+      // We close the connection.
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return foundRecord;
     }
   }
 }
