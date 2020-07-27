@@ -28,19 +28,22 @@ namespace MusicOrganizer.Tests
     }
 
     [TestMethod]
-    public void GetAll_ReturnsEmptyList_ItemList()
+    public void GetAll_ReturnsEmptyList_RecordList()
     {
       // Arrange
-      List<Item> newList = new List<Item> { };
+      List<Record> newList = new List<Record> { };
 
       // Act
-      List<Item> result = Item.GetAll();
+      List<Record> result = Record.GetAll();
 
       // Assert
       CollectionAssert.AreEqual(newList, result);
     }
 
     [TestMethod]
+    
+
+    /*[TestMethod]
     public void GetAll_ReturnsItems_ItemList()
     {
       //Arrange
@@ -79,6 +82,6 @@ namespace MusicOrganizer.Tests
       Item result = Item.Find(2);
 
       Assert.AreEqual(newItem2, result);
-    }
+    }*/
   }
 }
