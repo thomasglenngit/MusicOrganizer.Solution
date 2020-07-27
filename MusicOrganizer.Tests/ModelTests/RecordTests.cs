@@ -51,6 +51,21 @@ namespace MusicOrganizer.Tests
       Assert.AreEqual(firstRecord, secondRecord);
     } 
 
+    [TestMethod]
+    public void Save_SavesToDatabase_RecordList()
+    {
+      //Arrange
+      Record testRecord = new Record("Rubber Soul", "The Beatles");
+
+      //Act
+      testRecord.Save();
+      List<Record> result = Record.GetAll();
+      List<Record> testList = new List<Record>{testRecord};
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
+
     /*[TestMethod]
     public void GetAll_ReturnsItems_ItemList()
     {

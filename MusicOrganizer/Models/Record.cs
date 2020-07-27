@@ -74,6 +74,11 @@ namespace MusicOrganizer.Models
      }
     }
 
+    public void Save()
+    {
+      
+    }
+
     public static Record Find(int searchId)
     {
       Record placeholderRecord = new Record("placeholder Title", "placeholder Artist");
