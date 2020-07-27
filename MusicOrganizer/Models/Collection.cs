@@ -32,15 +32,5 @@ namespace MusicOrganizer.Models
     {
       Records.Add(record);
     }
-
-    public static List<List<Record>> GetAllRecords()
-    {
-      List<List<Record>> result = new List<List<Record>>();
-      foreach(List<Record> list in _collections)
-      {
-        result.Add(list);
-      }
-      return result;
-    }
   }
 }

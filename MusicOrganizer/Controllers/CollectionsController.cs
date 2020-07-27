@@ -27,13 +27,6 @@ namespace MusicOrganizer.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpGet("/collections/records")]
-    public ActionResult ShowAll()
-    {
-      List<List<Record>> allRecords = Collection.GetAllRecords();
-      return View(allRecords);
-    }
-
     [HttpGet("/collections/{id}")]
     public ActionResult Show(int id)
     {
