@@ -91,7 +91,7 @@ namespace MusicOrganizer.Tests
       Record record2 = new Record("Rubber Soul", "The Beatles");
       record2.Save();
 
-      Record result = Record.Find(2);
+      Record result = Record.Find(record2.Id);
 
       Assert.AreEqual(record2, result);
     }
