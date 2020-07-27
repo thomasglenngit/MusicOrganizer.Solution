@@ -66,24 +66,24 @@ namespace MusicOrganizer.Tests
       CollectionAssert.AreEqual(testList, result);
     }
 
-    /*[TestMethod]
-    public void GetAll_ReturnsItems_ItemList()
+    [TestMethod]
+    public void GetAll_ReturnsRecords_RecordList()
     {
       //Arrange
-      string description01 = "Walk the dog";
-      string description02 = "Wash the dishes";
-      Item newItem1 = new Item(description01);
-      Item newItem2 = new Item(description02);
-      List<Item> newList = new List<Item> { newItem1, newItem2 };
+      Record  record1 = new Record("title", "artist");
+      record1.Save();
+      Record record2 = new Record("Rubber Soul", "The Beatles");
+      record2.Save();
+      List<Record> newList = new List<Record> {record1, record2};
 
       //Act
-      List<Item> result = Item.GetAll();
+      List<Record> result = Record.GetAll();
 
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
 
-    [TestMethod]
+    /*[TestMethod]
     public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
     {
       string description = "Walk the dog.";

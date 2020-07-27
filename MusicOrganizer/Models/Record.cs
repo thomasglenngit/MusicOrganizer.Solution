@@ -7,7 +7,7 @@ namespace MusicOrganizer.Models
   {
     public string Title { get; set; }
     public string Artist { get; set; }
-    public int Id { get; }
+    public int Id { get; set;}
 
     public Record(string title, string artist)
     {
@@ -31,8 +31,9 @@ namespace MusicOrganizer.Models
       else
       {
         Record newRecord = (Record) otherRecord;
+        bool idEquality = (this.Id == newRecord.Id);
         bool recordEquality = (this.Title == newRecord.Title) && (this.Artist == newRecord.Artist);
-        return recordEquality;
+        return (recordEquality && idEquality);
       }
     }
   
@@ -76,7 +77,26 @@ namespace MusicOrganizer.Models
 
     public void Save()
     {
-      
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO records (title, artist) VALUES (@RecordTitle, @RecordArtist);";
+      MySqlParameter title = new MySqlParameter();
+      MySqlParameter artist = new MySqlParameter();
+      title.ParameterName = "@RecordTitle";
+      title.Value = this.Title;
+      artist.ParameterName = "@RecordArtist";
+      artist.Value = this.Artist;
+      cmd.Parameters.Add(title);
+      cmd.Parameters.Add(artist);    
+      cmd.ExecuteNonQuery();
+      Id = (int)cmd.LastInsertedId;
+
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
     }
 
     public static Record Find(int searchId)
