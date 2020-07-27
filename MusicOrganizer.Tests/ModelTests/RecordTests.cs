@@ -41,7 +41,15 @@ namespace MusicOrganizer.Tests
     }
 
     [TestMethod]
-    
+    public void Equals_ReturnsTrueIfTitlesAreTheSame_Record()
+    {
+      // Arrange, Act
+      Record firstRecord = new Record("Rubber Soul", "The Beatles");
+      Record secondRecord = new Record("Rubber Soul", "The Beatles");
+
+      // Assert
+      Assert.AreEqual(firstRecord, secondRecord);
+    } 
 
     /*[TestMethod]
     public void GetAll_ReturnsItems_ItemList()

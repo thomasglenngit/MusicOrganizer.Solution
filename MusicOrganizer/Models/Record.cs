@@ -22,6 +22,20 @@ namespace MusicOrganizer.Models
       Artist = artist;
     }
 
+    public override bool Equals(System.Object otherRecord)
+    {
+      if (!(otherRecord is Record))
+      {
+        return false;
+      }
+      else
+      {
+        Record newRecord = (Record) otherRecord;
+        bool recordEquality = (this.Title == newRecord.Title) && (this.Artist == newRecord.Artist);
+        return recordEquality;
+      }
+    }
+  
     public static List<Record> GetAll()
     {
       List<Record> allRecords = new List<Record> {};
