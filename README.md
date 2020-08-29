@@ -1,4 +1,4 @@
-<h1 align='center'><img width='900' height='450' src='https://coding-assets.s3.us-west-2.amazonaws.com/hero_images/TaskList.Solution.jpg'><br>
+<h1 align='center'><img width='900' height='450' src='https://hys2d3ayt6x6b7ts22ypg68p-wpengine.netdna-ssl.com/wp-content/uploads/2018/01/Records-crop.jpg'><br>
 
 
 **<h1 align = 'center'>Music Organizer**
@@ -96,6 +96,8 @@ with the root project folder open in your code editor, execute the following in 
 # **❤️Contributors**
 
 | [<img src='https://coding-assets.s3-us-west-2.amazonaws.com/linked-in-images/evgeniya-chernaya.jpeg' width='160px;'/><br /><sub><b>Evgeniya Chernaya</b></sub>](https://www.linkedin.com/in/evgeniyach/)<br />
+
+| [<img src='https://coding-assets.s3-us-west-2.amazonaws.com/linked-in-images/taylor-somers.jpeg' width='160px;'/><br /><sub><b>Taylor Somers</b></sub>](https://www.linkedin.com/in/taylorsomers/)<br />
 
 <br>
 
